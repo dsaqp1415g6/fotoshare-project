@@ -78,7 +78,7 @@ public class FotoshareResource {
 					photo.setUsername(rs.getString("username")); 
 					photo.setDate(rs.getDate("data")); 
 					photo.setFilename(rs.getInt("photoid") + ".jpg"); 
-					photo.setUrl(app.getProperties().get("photoBaseURL") 
+					photo.setUrl(app.getProperties().get("http://www.grupo6.dsa/img/") 
 							+ photo.getFilename()); 
 					int photoid = photo.getPhotoid(); 
 					try { 
@@ -754,7 +754,7 @@ public class FotoshareResource {
 					photoid = rs.getInt(1); 
 					System.out.println(photoid); 
 					filename = Integer.toString(photoid) + ".jpg"; 
-					String file = app.getProperties().get("uploadFolder") 
+					String file = app.getProperties().get("/var/www/img/") 
 							+ filename; 
 					FileCopy(photo, file); 
 					photo1 = getPhotoFromDatabase(Integer.toString(photoid)); 
@@ -889,7 +889,7 @@ public class FotoshareResource {
 		@POST 
 		@Path("/{photoid}/score") 
 		@Consumes(MediaType.FOTOSHARE_API_SCORE) 
-		// @Produces(Mediatype.VIDEOSHARE_API_VIDEOS) 
+		
 		public Photo insterPuntuacion(@PathParam("photoid") String photoid, 
 				Score Puntos) throws SQLException { 
 	 
