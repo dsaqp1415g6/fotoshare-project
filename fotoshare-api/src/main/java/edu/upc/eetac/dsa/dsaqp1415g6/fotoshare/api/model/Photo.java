@@ -16,7 +16,7 @@ import edu.upc.eetac.dsa.dsaqp1415g6.fotoshare.api.MediaType;
 
 public class Photo {
 	@InjectLinks({
-		@InjectLink(resource = FotoshareResource.class, style = Style.ABSOLUTE, rel = "videos", title = "Colecció de fotos", type = MediaType.FOTOSHARE_API_PHOTOS_COLLECTION),
+		@InjectLink(resource = FotoshareResource.class, style = Style.ABSOLUTE, rel = "photos", title = "Colecció de fotos", type = MediaType.FOTOSHARE_API_PHOTOS_COLLECTION),
 		@InjectLink(resource = FotoshareResource.class, style = Style.ABSOLUTE, rel = "self edit", title = "photos", type = MediaType.FOTOSHARE_API_PHOTOS, method = "getPhotoid", bindings = @Binding(name = "photoid", value = "${instance.photoid}")) }) 
 	
 	private List<Link> links;

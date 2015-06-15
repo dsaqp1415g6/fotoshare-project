@@ -29,9 +29,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
-import org.glassfish.jersey.media.multipart.FormDataParam;
-
 import edu.upc.eetac.dsa.dsaqp1415g6.fotoshare.api.model.Category;
 import edu.upc.eetac.dsa.dsaqp1415g6.fotoshare.api.model.Photo;
 import edu.upc.eetac.dsa.dsaqp1415g6.fotoshare.api.model.PhotoCollection;
@@ -715,11 +712,11 @@ public class FotoshareResource {
 		} 
 	 
 		
-		@POST 
+		/* @POST 
 		@Path("/upload/{username}") 
 		@Consumes(MediaType.MULTIPART_FORM_DATA) 
 		public Photo uploadPhoto(@FormDataParam("title") String title, 
-				@FormDataParam("photo") InputStream photo, 
+				@FormDataParam("photo") InputStream video, 
 				@FormDataParam("photo") FormDataContentDisposition fileDisposition, 
 				@FormDataParam("category") String category, 
 				@PathParam("username") String username) { 
@@ -756,7 +753,7 @@ public class FotoshareResource {
 					filename = Integer.toString(photoid) + ".jpg"; 
 					String file = app.getProperties().get("/var/www/grupo6.dsa/public_html/img/") 
 							+ filename; 
-					FileCopy(photo, file); 
+					FileCopy(video, file); 
 					photo1 = getPhotoFromDatabase(Integer.toString(photoid)); 
 					stmt2.setInt(1, photoid); 
 					stmt2.setString(2, category); 
@@ -791,7 +788,7 @@ public class FotoshareResource {
 			// 
 			return photo1; 
 	 
-		} 
+		} */
 	 
 		
 		public void FileCopy(InputStream in, String destinationFile) { 
