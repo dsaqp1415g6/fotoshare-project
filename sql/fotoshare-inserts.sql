@@ -1,4 +1,4 @@
-source fotosharedb-schema.sql;
+source fotoshare-schema.sql;
 
 
 insert into users (username, password, name, email) values('joan', MD5('joan'), 'Joan Jerez Torres', 'joanjerezt@upc.edu');
