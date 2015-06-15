@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ca"><head>
+  
+  <meta charset="utf-8">
+  <title>Fotoshare!</title>
+
+  
+<!-- Latest compiled and minified CSS -->
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+ 
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="fotoshare.js"></script>
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+
+</head>
+<!-- Fi capçalera -->
+
+<body onload="addUsername();" style="background-color: green;">
+<!-- Logo + contenedor naranja superior -->
+<div class="container theme-showcase" role="main">
+<div style="background-color: hsl(122, 98%, 66%);" class="jumbotron"> 
+<div class="input-group input-group-sm"> </div>
+<!-- Fin Logo --><!-- Formulari d'inici de sessió de Facebook superior --> 
+
+    <nav class="navbar navbar-inverse  navbar-fixed-top"> 
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" onclick="location.href='perfil.html'"><img width="200px" src="logo.png"></a>
+	  </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            
+<ul class="nav navbar-nav">
+  <form class="navbar-form navbar-left" role="search">
+    <div class="form-group"> <input class="form-control" placeholder="Cerca" type="text"> </div>
+    <button class="btn btn-default" type="button" id="button_search" style="color: white; background-color: green;"><i class="glyphicon glyphicon-search"></i></button></form>
+</ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span id="username_login"></span><i class="glyphicon glyphicon-user"></i><span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#formeditar">Reanomena una foto</a></li>
+                  <li><a href="#comentaris">Comenta una foto</a></li>
+                  <li><a type="button" href="#" id="button_username">Ordena per puntuació</a></li>
+                  <li><a class="btn btn-default input-sm" data-toggle="modal" data-target="#Upload" id="button_upload_modal">Puja una foto</a></li>
+                  <li class="divider"></li>
+                  <li><a type="button" class="btn success" id="button_logout" style="color:white;background-color:black; height:4; margin:2px;" onclick="location.href='index.html'">Tanca sessió</a></li>
+                </ul>
+              </li>
+            </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+    </div>
+    
+    <!-- Modals -->
+    
+    
+    <div class="modal fade" id="Upload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Puja una fotografia</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+							<form id="videoForm" class="form-horizontal col-md-6" role="form">
+								<div class="form-group">
+									<label for="title">Nom</label> <input name="title"
+										type="text" id="title" class="form-control"
+										placeholder="Enter photo name" required="required">
+                                    
+								</div>
+								<div class="form-group">
+									<label for="category">Categoria</label> <input
+										name="category" type="text" id="category"
+										class="form-control" placeholder="Enter photo category"
+										required="required">
+
+								</div>
+								<div class="form-group">
+									<label for="photo">Foto</label> <input name="photo"
+										type="file" id="photo" required="required">
+								</div>
+								<div style="float: right">
+									<button id="button_shareit" type="submit" class="btn success"
+										style="color: white; background-color: black; width: 90px; height: 4;">
+										Pujar</button>
+									<progress style="display: none;"></progress>
+								</div>
+
+							</form>
+						</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel·lar</button>
+      </div>
+    </div>
+  </div>
+</div>
+       
+    
+<div class = "row">
+    <div class = "col-sm-12"><div style="background-color: hsl(122, 98%, 66%);" class="panel"><div class="panel-body">
+        
+        <span id="foto_result" output=" "></span>
+        <form id="newReviewForm">
+								<div class="col-sm-8">
+									<div class="panel">
+										<div class="panel-body">
+
+											<div class="form-group" id="comentaris">
+												<label for="inputTitle">Afegeix comentari</label>
+												<center>
+													<strong>
+														<form role="form">
+															<textarea class="form-control" id="textA" rows="3"></textarea>
+														</form>
+												</center>
+											</div>
+										</div>
+										<button type="button" class="btn success"
+											id="button_postreview"
+											style="color: white; background-color: #3E3E3E; width: 140px; height: 4">
+											Afegeix comentari</button>
+									</div>
+								</div>
+								<!-- /.col-sm-8 -->
+								<span id="fotoreviews_result" output=" "></span>
+							</form>
+							<form id="formeditar">
+								<div class="col-sm-8">
+									<div class="panel">
+										<div class="panel-body">
+											<div class="form-group">
+												<legend>Reanomenar foto</legend>
+												<label for="inputTitle">Nom</label> <input name="title"
+													type="text" id="photoname" class="form-control"
+													placeholder="Enter name" required="required">
+											</div>
+											<div class="form-group">
+												<label for="inputFile">Categoria</label> <input name="title"
+													type="text" id="category" class="form-control"
+													placeholder="Enter category" required="required">
+											</div>
+										</div>
+										<div class="panel-body">
+											<div style="float: right">
+												<button type="button" class="btn success"
+													id="button_cancelar"
+													style="color: white; background-color: black; width: 90px; height: 4;"
+													onClick="location.href='perfil.html'">
+													Cancelar</button>
+											</div>
+											<div style="float: right">
+												<button type="button" class="btn success"
+													id="button_updateit"
+													style="color: white; background-color: black; width: 90px; height: 4;">
+													Reanomenar</button>
+											</div>
+										</div>
+										<div class="panel-body">
+											<div class="col-sm-8">
+												<span id="foto_result" output=" "></span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+							</div></div></div>
+    
+</div>
+    
+    </div></div></div>
+</div>
+</body></html>

@@ -529,7 +529,7 @@ public class FotoshareResource {
 					photo.setUsername(rs.getString("username")); 
 					photo.setDate(rs.getDate("data")); 
 					photo.setFilename(rs.getInt("photoid") + ".jpg"); 
-					photo.setUrl(app.getProperties().get("photoBaseURL") 
+					photo.setUrl(app.getProperties().get("http://www.grupo6.dsa/img/") 
 							+ photo.getFilename()); 
 				} else { 
 	 
@@ -754,7 +754,7 @@ public class FotoshareResource {
 					photoid = rs.getInt(1); 
 					System.out.println(photoid); 
 					filename = Integer.toString(photoid) + ".jpg"; 
-					String file = app.getProperties().get("/var/www/img/") 
+					String file = app.getProperties().get("/var/www/grupo6.dsa/public_html/img/") 
 							+ filename; 
 					FileCopy(photo, file); 
 					photo1 = getPhotoFromDatabase(Integer.toString(photoid)); 

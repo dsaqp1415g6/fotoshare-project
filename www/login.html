@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ca"><head>
+  
+  <meta charset="utf-8">
+  <title>Fotoshare!</title>
+
+  
+<!-- Latest compiled and minified CSS -->
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+ 
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="bootstrap/js/jquery.cookie.js"></script>
+  <script type="text/javascript" src="fotoshare.js"></script>
+  <link rel="shortcut icon" href="favicon.png">
+
+</head>
+<!-- Fi capçalera -->
+
+<body onload="addUsername();" style="background-color: green;">
+<!-- Logo + contenedor naranja superior -->
+<div class="container theme-showcase" role="main">
+
+<!-- Fin Logo --><!-- Formulari d'inici de sessió de Facebook superior -->    
+    <nav class="navbar navbar-inverse  navbar-fixed-top"> 
+        <div class="container">
+            <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" style="background-color:green">
+		  <span class="sr-only">Obre navegació</span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>   
+		</button>
+                <a class="navbar-brand" href="#"><img src="logo.png" alt="Fotoshare"></a>
+	  </div>
+            <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text"  id="username" placeholder="Nom d'usuari" class="form-control"  required="required">
+            </div>
+            <div class="form-group">
+              <input type="password"  id="password" placeholder="Contrasenya" class="form-control"  required="required">
+            </div>
+            <button style="color: white; background-color: green;" type="submit" class="btn btn-success"  id="button_login">Inicia sessió</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+    <br>
+<div class = "row">
+    <div class = "col-sm-6"><div style="background-color: hsl(122, 98%, 66%);" class="panel"><div class="panel-body">
+        <h3 style="color:orange">Fotoshare t'ajuda a compartir els moments de la teva vida en instantànies.</h2>
+        <img src="aplicatiu.png"></div></div></div>
+    
+<div class = "col-sm-6"><div style="background-color: hsl(122, 98%, 66%);" class="panel"><div class="panel-body">
+<legend>Inscriu-te</legend><div id="registration_container"><noscript><div><h2>El JavaScript està desactivat al teu navegador.</h2><p>Habilita el JavaScript al teu navegador o empra un navegador compatible amb JavaScript per registrar-te al Fotoshare.</p></div></noscript>
+
+    <div class="form-group">
+								<label for="inputTitle">Nom d'usuari</label>
+								<input aria-label="Nom" name="title" type="text" id="username" class="form-control" placeholder="Nom d'usuari" required="required">
+        
+      
+								<label for="inputTitle">Nom i cognoms</label>
+								<input aria-label="Nom i cognoms" name="title" type="text" id="name" class="form-control" placeholder="Nom i cognom" required="required">
+   
+								<label for="inputTitle">Correu</label>
+								<input aria-label="Correu" name="correu1" type="text" id="email" class="form-control" placeholder="Correu" required="required">
+      
+        <label for="inputTitle">Nova contrasenya</label>
+								<input aria-label="Nova contrasenya" type="password" id="password" name="title" class="form-control" placeholder="Nova contrasenya" required="required">
+    </div></div></div>
+    <div class="panel-body">
+						 
+						<div style="float:right" >
+								<button type="button" class="btn success" id="button_cancelar" style="color:white;background-color:black; height:4;margin:2px;" onClick="location.href='index.html'">Cancel·lar</button>
+						</div>
+				
+						<div style="float:right" >
+							<button type="button" class="btn success" id="button_registrarse" style="color:white;background-color:black; height:4;margin:2px;">Registrar-se</button>
+						</div>
+					</div>
+    
+    </div></div></div>
+    
+<div class="panel-body">
+<div class="col-sm-8"> <span id="foto_result"></span></div>
+    </div></div>
+</body></html>
